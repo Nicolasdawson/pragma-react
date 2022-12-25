@@ -46,8 +46,8 @@ export default function Usuarios() {
                 <h1>Mantenedor Usuarios</h1>
             </div>
 
-            <div className='row'>
-                <div className='col align-self-end'>
+            <div className='btn-form'>
+                <div>
                     <Button onClick={handleCreate}>Agregar un nuevo usuario</Button>
                 </div>
             </div>
@@ -67,9 +67,9 @@ export default function Usuarios() {
                             return (
                                 <tr key={p.id}>
                                     <td>{p.nombre}</td>
-                                    <td>"{p.rut}"</td>
-                                    <td>"{p.correo}"</td>
-                                    <td>"{p.fechaNacimiento}"</td>
+                                    <td>{p.rut}</td>
+                                    <td>{p.correo}</td>
+                                    <td>{p.fechaNacimiento.toLocaleString().split('T')[0]}</td>
                                     <td>
                                         <Button variant="primary" onClick={(e) => handleEdit(e, p.id)}> Editar</Button>
                                     </td>
