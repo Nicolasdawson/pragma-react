@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { DeleteUsuario, GetUsuarios } from '../services/UsuarioService';
+import Export  from '../utilities/export';
 
 export default function Usuarios() {
 
@@ -40,6 +41,10 @@ export default function Usuarios() {
         }
     }
 
+    const handleExport = () => {
+        Export.exportToCSV(Usuarios, 'usuarios_export');
+    }
+
     return (
         <div className='container'>
             <div className='row'>
@@ -48,7 +53,12 @@ export default function Usuarios() {
 
             <div className='btn-form'>
                 <div>
-                    <Button onClick={handleCreate}>Agregar un nuevo usuario</Button>
+                    <Button variant="success" onClick={handleCreate}>Agregar un nuevo usuario</Button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <Button variant="success" onClick={handleExport}>Exportar a Excel</Button>
                 </div>
             </div>
             <div>
